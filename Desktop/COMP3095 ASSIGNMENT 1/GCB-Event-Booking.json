@@ -1,0 +1,575 @@
+{
+	"info": {
+		"_postman_id": "97b01404-3628-46a2-8e22-fc0d6faa78a6",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38686980"
+	},
+	"item": [
+		{
+			"name": "GCB_EventBooking",
+			"item": [
+				{
+					"name": "Room",
+					"item": [
+						{
+							"name": "Create a New Room",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"roomName\": \"Conference Room B\",\n    \"capacity\": 40,\n    \"features\": [\n        \"whiteboard\"\n    ],\n    \"isAvailable\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/rooms",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"rooms"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all rooms",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/rooms/get-all-rooms",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"rooms",
+										"get-all-rooms"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get room by ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/rooms/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"rooms",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Search Rooms",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/rooms/search?roomName=Conference Room F",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"rooms",
+										"search"
+									],
+									"query": [
+										{
+											"key": "roomName",
+											"value": "Conference Room F"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update a Room",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"roomName\": \"Updated Conference Room A\",\n  \"capacity\": 25\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/rooms/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"rooms",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Bookings",
+					"item": [
+						{
+							"name": "Create a Booking",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"userId\": \"him\",\n  \"roomId\": 1004,\n  \"startTime\": \"2024-12-07T10:00:00\",\n  \"endTime\": \"2024-12-07T12:00:00\",\n  \"purpose\": \"Meeting\",\n  \"eventName\": \"Team Sync\",\n  \"eventType\": \"Internal\",\n  \"expectedAttendees\": 40\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8082/bookings",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"bookings"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Bookings",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8082/bookings",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"bookings"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update a Booking",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"userId\": \"user2\",\n    \"roomId\": 1006,\n    \"startTime\": \"2025-12-07T10:00:00\",\n    \"endTime\": \"2025-12-07T12:00:00\",\n    \"purpose\": \"Call\",\n    \"bookingStatus\": \"Pending for approval\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8082/bookings/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"bookings",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Booking by ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8082/bookings/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"bookings",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Cancel a Booking",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8082/bookings/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"bookings",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "User",
+					"item": [
+						{
+							"name": "Get All Uers",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8083/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8083",
+									"path": [
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get User by ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8083/users/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8083",
+									"path": [
+										"users",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Register a New User",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"Martin S\",\n  \"email\": \"Martin.s@georgebrown.ca\",\n  \"password\": \"martin123\",\n  \"role\": \"FACULTY\",\n  \"userType\": \"STAFF\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8083/users/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8083",
+									"path": [
+										"users",
+										"register"
+									]
+								},
+								"description": "POST [http://localhost:8080/users/register](http://localhost:8080/users/register)  \nContent-Type: multipart/form-data\n\nBody (form-data):\n\n- name = John Doe\n    \n- email = [john.doe@example.com](https://mailto:john.doe@example.com)\n    \n- password = securepassword123\n    \n- role = admin\n    \n- userType = premium"
+							},
+							"response": []
+						},
+						{
+							"name": "Update User Details",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n        \"id\": 3,\n        \"name\": \"Martin Stw\",\n        \"email\": \"Martin.st@georgebrown.ca\",\n        \"role\": \"FACULTY\",\n        \"userType\": \"ADMIN\",\n        \"passwordHash\": null\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8083/users/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8083",
+									"path": [
+										"users",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete User",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8083/users/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8083",
+									"path": [
+										"users",
+										"3"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Event",
+					"item": [
+						{
+							"name": "Get All Events",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8084/events",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8084",
+									"path": [
+										"events"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Event by ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8084/events/event123",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8084",
+									"path": [
+										"events",
+										"event123"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Events by Organizer ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8084/events/organizer/user123",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8084",
+									"path": [
+										"events",
+										"organizer",
+										"user123"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update an Event",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8084/events/event123",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8084",
+									"path": [
+										"events",
+										"event123"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete an Event",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8084/events/672fe2f0cfdbc21a99705802",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8084",
+									"path": [
+										"events",
+										"672fe2f0cfdbc21a99705802"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Approval",
+					"item": [
+						{
+							"name": "Approve an Event",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"staffId\": \"4\",\n  \"bookingId\": \"2\"\n  \n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8085/approvals/approve",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8085",
+									"path": [
+										"approvals",
+										"approve"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Reject an Event",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"eventId\": \"event123\",\n  \"staffId\": \"staff456\",\n  \"status\": \"REJECTED\",\n  \"comments\": \"Rejected due to scheduling conflict\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8085/approvals/reject",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8085",
+									"path": [
+										"approvals",
+										"reject"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Approval Status of an Event",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8085/approvals/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8085",
+									"path": [
+										"approvals",
+										"3"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
